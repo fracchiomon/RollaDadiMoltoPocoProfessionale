@@ -5,7 +5,7 @@ import winsound
 import sys
 import os
 
-20def resource_path(relative_path):
+def resource_path(relative_path):
     """Restituisce il percorso assoluto della risorsa, compatibile con PyInstaller."""
     if hasattr(sys, '_MEIPASS'):
         return os.path.join(sys._MEIPASS, relative_path)
