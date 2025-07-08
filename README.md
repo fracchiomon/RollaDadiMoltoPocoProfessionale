@@ -13,6 +13,7 @@ Il software è stato realizzato a scopo puramente amatoriale, per divertimento p
 
 ## Requisiti
 
+- Windows OS (per via dell'utilizzo della libreria WinSound)
 - Python 3.11 o superiore
 
 ## Avvio
@@ -23,6 +24,18 @@ python main.py
 ```
 
 In alternativa avvia l'eseguibile compilato con PyInstaller.
+
+## PyInstaller
+
+Per realizzare il proprio EXE usando PyInstaller occorre installarlo tramite PIP
+```sh
+pip install pyinstaller
+```
+e successivamente da terminale, nella cartella del progetto:
+```sh
+pyinstaller.exe --onefile --name "RollaDadiMoltoPocoProfessionale" --icon=d20.ico --add-data "diceRoll.wav;." --add-data "d20.ico;." --noconsole .\main.py
+```
+aggiungendo eventualmente le proprie modifiche desiderate al comando
 
 ## Avvertenze
 
