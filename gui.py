@@ -5,6 +5,12 @@ import winsound
 import sys
 import os
 
+20def resource_path(relative_path):
+    """Restituisce il percorso assoluto della risorsa, compatibile con PyInstaller."""
+    if hasattr(sys, '_MEIPASS'):
+        return os.path.join(sys._MEIPASS, relative_path)
+    return os.path.join(os.path.abspath("."), relative_path)
+
 from logic import DADI, tira_dadi
 from salvaSuTesto import salva_txt, salva_csv
 
@@ -19,7 +25,7 @@ class RollaDadiApp(tk.Tk):
         y = (screen_height // 2) - (window_height // 2)
         self.geometry(f"{window_width}x{window_height}+{x}+{y}")
         self.resizable(False, False)
-        self.iconbitmap("d20.ico") # Icona
+        self.iconbitmap(resource_path("d20.ico")) # Icona
         self.tipo_dado = tk.IntVar(value=20)
         self.quanti_lanci = tk.IntVar(value=1)
         self.risultati = []
